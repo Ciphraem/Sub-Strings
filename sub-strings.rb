@@ -6,6 +6,21 @@
 #   - making sure it can handle multiple words for the user input
 # Third, print the hash of words and count value
 
+# require 'json'      # for storing words in a JSON file
+
+# def add_to_d (new_word)                                       still in the works
+#     p new_word                                                I want to know how to store data
+#     new_word.map! {|word| word.gsub(/[^a-z ]/, "")}           locally within the folder.
+#     p new_word
+
+#     dump = JSON.dump(new_word)
+#     if !File.exist?("./data/dictionary.json")
+#       File.new("./data/dictionary.json", "r+")
+#     end
+#     File.write("./data/dictionary.json", dump)
+#     # dictionary = File.new("./data/dictionary.json")
+# end
+
 def substrings (input, dictionary)
     substring = Hash.new(0)
     input.each do |input_word|
@@ -17,9 +32,29 @@ def substrings (input, dictionary)
     substring
 end
 
-puts "Welcome to Sub Strings! Enter the word/words: "
-input = gets.chomp.downcase.split(" ")
+puts "Hi! Welcome to Sub Strings! What would you like to do?"
+puts "1 = Add a new word to the dictionary || 2 = Check your string"
+input = gets.chomp
 
-dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+while input != "2"
+    if input == "1"
+        puts "\nStill in the works. Will add soon."
+        puts "Want to check your string instead? Y/N"
+        input = gets.chomp.downcase
+        break
+    end
+    puts "Invalid option. Please enter 1 or 2."
+    puts "1 = Add a new word to the dictionary || 2 = Check your string"
+    input = gets.chomp
+end
 
-p substrings(input, dictionary)
+if input == "2" || input == "y"
+    puts "\nEnter the word/words: "
+    check_word = gets.chomp.downcase.split(" ")
+    dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+    p substrings(check_word, dictionary)
+# elsif input == "1"
+    # puts "\nWhat word would you like to add?"
+    # new_word = gets.chomp.downcase.split(" ")
+    # add_to_d(new_word)
+end
