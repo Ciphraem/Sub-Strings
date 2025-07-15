@@ -1,4 +1,4 @@
-# Sub-Strings
+# Sub-Strings (Archived: Please see Ruby-Small-Projects)
 
 This is the second project for the Ruby Course on The Odin Project.
 
